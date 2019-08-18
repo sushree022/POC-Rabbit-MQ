@@ -9,11 +9,11 @@ import org.springframework.stereotype.Service;
 @Service
 public class ProducerService {
 
-//    Constructor based Dependency injection to inject AmqpTemplate here
+    //    Constructor based Dependency injection to inject AmqpTemplate here
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-//    injects values into fields
+    //    injects values into fields
     @Value("${jsa.rabbitmq.exchange}")
     private String exchange;
 

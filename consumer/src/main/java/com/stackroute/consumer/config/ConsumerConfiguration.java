@@ -1,4 +1,5 @@
 package com.stackroute.consumer.config;
+
 import org.springframework.amqp.core.Binding;
 import org.springframework.amqp.core.BindingBuilder;
 import org.springframework.amqp.core.DirectExchange;
@@ -14,7 +15,7 @@ import org.springframework.context.annotation.Configuration;
 @Configuration
 public class ConsumerConfiguration {
 
-//    @Value injects values into fields
+    //    @Value injects values into fields
     @Value("${jsa.rabbitmq.queue}")
     private String queueName;
 

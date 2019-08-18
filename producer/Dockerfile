@@ -3,7 +3,7 @@
 FROM openjdk:11
 
 ##Specify the work directory
-WORKDIR usr/src/rabbit-mq
+WORKDIR producer/src
 
 ##Add the jar file to be executed
 ADD .target/producer-0.0.1-SNAPSHOT.jar /producer/src/producer-0.0.1-SNAPSHOT.jar

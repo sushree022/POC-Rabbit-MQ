@@ -15,11 +15,12 @@ import org.springframework.web.bind.annotation.RestController;
 public class ProducerController {
     private ProducerService producerService;
 
-//    Constructor based Dependency injection to inject producer Service into controller
+    //    Constructor based Dependency injection to inject producer Service into controller
     @Autowired
     public ProducerController(ProducerService producerService) {
         this.producerService = producerService;
     }
+
     @RequestMapping("/send")
     public String sendMessage(@RequestParam("msg") String msg) {
         producerService.produceMsg(msg);

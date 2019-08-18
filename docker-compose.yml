@@ -1,6 +1,6 @@
 version: "3"
 services:
-  neo4jdb:
+  producer:
     image: neo4j
     container_name: neo4j-springboot
     volumes:
@@ -9,7 +9,7 @@ services:
       - 7474:7474
       - 7687:7687
 
-  spring-boot-neo4j:
+  consumer:
     build: .
     container_name: movie-critic
     ports:
