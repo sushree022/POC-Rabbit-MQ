@@ -1,6 +1,6 @@
 Author- Sushree Swagatika Mishra
 
-Project Name- POc of rabbitMQ running in docker. One spring boot producer and one spring boot consumer exchanging messages,both running in docker.
+Project Name- POC of rabbitMQ running in docker. One spring boot producer and one spring boot consumer exchanging messages,both running in docker.
 
 Description- 
 
