@@ -1,20 +1,23 @@
 version: "3"
 services:
-  producer:
-    image: neo4j
-    container_name: neo4j-springboot
+  rabbitMQ:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-docker
     volumes:
-      - /home/cgi/docker-volume:/data
+      - /home/cgi/docker-volume:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
     ports:
-      - 7474:7474
-      - 7687:7687
+      # The standard AMQP protocol port
+      - 5672:5672
+      # HTTP management UI
+      - 15672:15672
+  producer:
+    build: ./producer/
+    container_name: rabbitMQ-producer
+    ports:
+      - 8010:8010
 
   consumer:
-    build: .
-    container_name: movie-critic
+    build: ./consumer/
+    container_name: rabbitMQ-consumer
     ports:
-      - 8060:8080
-    depends_on:
-      - neo4jdb
-    expose:
-      - 8060
+      - 8020:8020
