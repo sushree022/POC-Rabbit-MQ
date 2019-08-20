@@ -11,6 +11,6 @@ public class ConsumerService {
 
     @RabbitListener(queues = "${jsa.rabbitmq.queue}")
     public void receivedMessage(String msg) {
-        System.out.println("received msg=" + msg);
+        System.out.println("The received message=" + msg);
     }
 }

@@ -1,23 +1,40 @@
 version: "3"
 services:
-  rabbitMQ:
+  rabbitmq:
     image: rabbitmq:3-management
-    container_name: rabbitmq-docker
+    container_name: rabbitmq
+    restart: always
     volumes:
-      - /home/cgi/docker-volume:/var/lib/rabbitmq/mnesia/rabbit@my-rabbit
+      - /home/cgi/docker-volume:/var/lib/rabbitmq
     ports:
-      # The standard AMQP protocol port
       - 5672:5672
-      # HTTP management UI
       - 15672:15672
+    hostname: localhost
+    network_mode: host
+
   producer:
     build: ./producer/
     container_name: rabbitMQ-producer
     ports:
       - 8010:8010
+    depends_on:
+      - rabbitmq
+    restart: always
+    expose:
+      - 8010
+    hostname: localhost
+    network_mode: host
+
 
   consumer:
     build: ./consumer/
     container_name: rabbitMQ-consumer
     ports:
       - 8020:8020
+    depends_on:
+      - rabbitmq
+    restart: always
+    expose:
+      - 8020
+    hostname: localhost
+    network_mode: host

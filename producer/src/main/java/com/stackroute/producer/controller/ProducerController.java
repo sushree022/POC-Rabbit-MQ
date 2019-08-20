@@ -24,7 +24,7 @@ public class ProducerController {
     @RequestMapping("/send")
     public String sendMessage(@RequestParam("msg") String msg) {
         producerService.produceMsg(msg);
-        return "Message Sent Successfully ";
+        return "Messageg Sent Successfully ";
     }
 
 }

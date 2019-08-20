@@ -13,7 +13,9 @@ public class ProducerService {
     @Autowired
     private AmqpTemplate amqpTemplate;
 
-    //    injects values into fields
+    /**
+     * @Value injects values into fields
+     */
     @Value("${jsa.rabbitmq.exchange}")
     private String exchange;
 
